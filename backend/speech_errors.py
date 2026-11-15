@@ -1,0 +1,2 @@
+class SpeechUnavailable(RuntimeError):
+    pass

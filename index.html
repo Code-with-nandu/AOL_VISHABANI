@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f4f3ec" />
+    <meta name="description" content="Choose your language preferences for AOL Live multilingual learning." />
+    <title>AOL Live | Language preferences</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <main class="page-shell">
+      <header class="brand-row" aria-label="Art of Living">
+        <a class="brand" href="./" aria-label="AOL Live home">
+          <span class="brand-mark" aria-hidden="true">aol</span>
+          <span class="brand-name">Art of Living <span>LIVE</span></span>
+        </a>
+        <span class="step-label">Language setup <span aria-hidden="true">/</span> 01</span>
+        <button id="settings-open" class="header-settings" type="button" aria-label="Open settings" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Z"></path><path d="m19.4 15 .1.1a1.8 1.8 0 0 1-2.5 2.5l-.1-.1a1.8 1.8 0 0 0-3 .9v.2a1.8 1.8 0 0 1-3.6 0v-.2a1.8 1.8 0 0 0-3-.9l-.1.1a1.8 1.8 0 0 1-2.5-2.5l.1-.1a1.8 1.8 0 0 0-.9-3H3.7a1.8 1.8 0 0 1 0-3.6h.2a1.8 1.8 0 0 0 .9-3l-.1-.1a1.8 1.8 0 0 1 2.5-2.5l.1.1a1.8 1.8 0 0 0 3-.9v-.2a1.8 1.8 0 0 1 3.6 0v.2a1.8 1.8 0 0 0 3 .9l.1-.1a1.8 1.8 0 0 1 2.5 2.5l-.1.1a1.8 1.8 0 0 0 .9 3h.2a1.8 1.8 0 0 1 0 3.6h-.2a1.8 1.8 0 0 0-.9 3Z"></path></svg>
+          <span>Settings</span>
+        </button>
+      </header>
+
+      <section id="onboarding" class="onboarding" aria-labelledby="page-title">
+        <div class="intro">
+          <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> YOUR CLASSROOM, YOUR LANGUAGE</p>
+          <h1 id="page-title">Welcome.<br /><span>Let’s make it yours.</span></h1>
+          <p class="intro-copy">Choose the languages that help you feel at home in every session.</p>
+        </div>
+
+        <form id="preferences-form" novalidate>
+          <fieldset class="mode-fieldset">
+            <legend>Choose how you’d like to answer</legend>
+            <div class="mode-switch" role="radiogroup" aria-label="Language selection method">
+              <label class="mode-option">
+                <input type="radio" name="interactionPreference" value="manual" checked />
+                <span>Choose manually</span>
+              </label>
+              <label class="mode-option">
+                <input type="radio" name="interactionPreference" value="voice" />
+                <span>Use my voice</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <div class="question-list">
+            <section class="question" aria-labelledby="mother-tongue-label">
+              <div class="question-heading">
+                <span class="question-number" aria-hidden="true">01</span>
+                <label id="mother-tongue-label" for="mother-tongue">What is your Mother Tongue?</label>
+              </div>
+              <div class="answer-row">
+                <select id="mother-tongue" name="motherTongue" required autocomplete="off">
+                  <option value="" disabled selected>Select a language</option>
+                </select>
+                <button class="voice-button" type="button" data-voice-for="mother-tongue" aria-label="Speak your mother tongue">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="12" rx="3"></rect><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 18v3m-4 0h8"></path></svg>
+                  <span>Speak</span>
+                </button>
+              </div>
+              <p class="voice-result" id="mother-tongue-result" aria-live="polite"></p>
+            </section>
+
+            <section class="question" aria-labelledby="comfortable-language-label">
+              <div class="question-heading">
+                <span class="question-number" aria-hidden="true">02</span>
+                <label id="comfortable-language-label" for="comfortable-language">Which language are you most comfortable with?</label>
+              </div>
+              <div class="answer-row">
+                <select id="comfortable-language" name="comfortableLanguage" required autocomplete="off">
+                  <option value="" disabled selected>Select a language</option>
+                </select>
+                <button class="voice-button" type="button" data-voice-for="comfortable-language" aria-label="Speak your most comfortable language">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="12" rx="3"></rect><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 18v3m-4 0h8"></path></svg>
+                  <span>Speak</span>
+                </button>
+              </div>
+              <p class="voice-result" id="comfortable-language-result" aria-live="polite"></p>
+            </section>
+          </div>
+
+          <p id="form-message" class="form-message" role="status" aria-live="polite"></p>
+          <button class="continue-button" type="submit"><span>Save preferences</span><span aria-hidden="true">→</span></button>
+          <p class="privacy-note"><span aria-hidden="true">◌</span> Your preferences stay on this device.</p>
+        </form>
+      </section>
+
+      <section id="dashboard" class="dashboard" aria-labelledby="dashboard-title" hidden>
+        <div class="dashboard-topline">
+          <div>
+            <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> STUDENT DASHBOARD</p>
+            <h1 id="dashboard-title">Welcome to AOL Live.</h1>
+          </div>
+          <button id="dashboard-settings" class="text-button settings-link" type="button">Settings</button>
+        </div>
+        <p class="intro-copy">Your classroom, with language support chosen for you.</p>
+
+        <section class="language-summary" aria-label="Your languages">
+          <div><span>Mother Tongue</span><strong id="dashboard-mother-tongue"></strong></div>
+          <div><span>Most comfortable</span><strong id="dashboard-comfortable-language"></strong></div>
+          <button id="change-language" class="change-language" type="button">Change language</button>
+        </section>
+
+        <section class="session-panel" aria-labelledby="session-heading">
+          <div class="session-copy">
+            <p class="section-label" id="session-heading">CURRENT CLASSROOM</p>
+            <h2>No live session</h2>
+            <p id="session-message">There isn’t a classroom connected right now.</p>
+          </div>
+          <span class="connection-pill"><span aria-hidden="true"></span> Disconnected</span>
+        </section>
+
+        <button id="join-classroom" class="join-button" type="button">
+          <span class="join-icon" aria-hidden="true">↗</span>
+          <span>Join Live Classroom</span>
+        </button>
+        <p id="join-message" class="form-message" role="status" aria-live="polite"></p>
+
+        <div class="dashboard-controls" aria-label="Classroom preferences">
+          <button class="preference-toggle" type="button" data-pref-toggle="audioEnabled" aria-pressed="true">
+            <span class="toggle-icon" aria-hidden="true">♫</span><span>Audio</span><strong>On</strong>
+          </button>
+          <button class="preference-toggle" type="button" data-pref-toggle="subtitlesEnabled" aria-pressed="true">
+            <span class="toggle-icon" aria-hidden="true">Aa</span><span>Subtitles</span><strong>On</strong>
+          </button>
+        </div>
+      </section>
+
+      <section id="classroom" class="classroom" aria-labelledby="classroom-title" hidden>
+        <div class="classroom-heading">
+          <button id="back-dashboard" class="back-button" type="button" aria-label="Back to dashboard">← <span>Dashboard</span></button>
+          <div class="classroom-title-row">
+            <div>
+              <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> ART OF LIVING LIVE</p>
+              <h1 id="classroom-title" tabindex="-1">Live classroom</h1>
+            </div>
+            <span class="live-pill"><span aria-hidden="true"></span> OFFLINE</span>
+          </div>
+        </div>
+        <div class="classroom-meta">
+          <span>Classroom ID <strong>Not connected</strong></span>
+          <span>Language <strong id="classroom-language"></strong></span>
+        </div>
+        <p id="classroom-error" class="classroom-error" role="status" aria-live="polite">Classroom service is not configured. No live session has been joined.</p>
+
+        <section id="transcript-panel" class="transcript-panel" aria-label="Live translation">
+          <div class="transcript-heading"><span>ORIGINAL <b>English</b></span><span>TRANSLATION <b id="translation-language"></b></span></div>
+          <div class="transcript-body">
+            <p class="original-text" id="original-transcript">Original transcript will appear when a live classroom connects.</p>
+            <p class="translated-text" id="translated-transcript">Translated speech will appear here.</p>
+          </div>
+          <div class="transcript-footer"><span id="translation-status"><i></i> Disconnected</span><span id="audio-status"><i></i> Audio unavailable</span></div>
+        </section>
+
+        <div class="classroom-controls">
+          <button id="play-pause" class="icon-control" type="button" disabled aria-label="Play translated audio" title="Play translated audio">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 10 7-10 7z"></path></svg><span>Play</span>
+          </button>
+          <button class="icon-control" type="button" data-pref-toggle="audioEnabled" aria-pressed="true" aria-label="Turn audio off">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10v4h4l5 4V6l-5 4H4Z"></path><path d="M17 9a5 5 0 0 1 0 6m2-9a9 9 0 0 1 0 12"></path></svg><span class="audio-control-label">Audio on</span>
+          </button>
+          <label class="volume-control" for="volume"><span>Volume</span><input id="volume" type="range" min="0" max="100" value="70" disabled /><span id="volume-value">70%</span></label>
+          <button class="icon-control" type="button" data-pref-toggle="subtitlesEnabled" aria-pressed="true" aria-label="Turn subtitles off">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M7 10h4m2 0h4M7 14h2m2 0h6"></path></svg><span class="subtitle-control-label">Subtitles on</span>
+          </button>
+          <div class="font-controls" aria-label="Translation text size">
+            <span>Text size</span><button id="font-smaller" type="button" aria-label="Decrease translation text size">A−</button><button id="font-larger" type="button" aria-label="Increase translation text size">A+</button>
+          </div>
+        </div>
+      </section>
+
+      <dialog id="settings-dialog" class="settings-dialog" aria-labelledby="settings-title">
+        <form id="settings-form" method="dialog">
+          <div class="dialog-heading"><div><p class="eyebrow">YOUR PREFERENCES</p><h2 id="settings-title">Settings</h2></div><button id="settings-close" class="dialog-close" type="button" aria-label="Close settings">×</button></div>
+          <label class="settings-field" for="settings-mother-tongue">What is your Mother Tongue?<select id="settings-mother-tongue" required></select></label>
+          <label class="settings-field" for="settings-comfortable-language">Which language are you most comfortable with?<select id="settings-comfortable-language" required></select></label>
+          <fieldset class="mode-fieldset"><legend>Preferred selection method</legend><div class="mode-switch"><label class="mode-option"><input type="radio" name="settingsInteractionPreference" value="manual" /><span>Manual</span></label><label class="mode-option"><input type="radio" name="settingsInteractionPreference" value="voice" /><span>Voice</span></label></div></fieldset>
+          <label class="theme-setting" for="dark-mode"><input id="dark-mode" type="checkbox" /> Dark mode</label>
+          <p id="settings-message" class="form-message" role="status" aria-live="polite"></p>
+          <button class="continue-button" type="submit"><span>Save settings</span><span aria-hidden="true">→</span></button>
+        </form>
+      </section>
+
+      <footer class="page-footer">
+        <span>Art of Living — One World, One Language.</span>
+        <span class="footer-mark" aria-hidden="true">AOL</span>
+      </footer>
+    </main>
+  </body>
+</html>
